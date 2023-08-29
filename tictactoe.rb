@@ -22,7 +22,7 @@ class TicTacToe
       current_player = switch_player
       current_player.markboard(@board)
       show_board
-      if winner?(current_player.marker)
+      if winner?
         declare_winner(current_player)
         break
       end
@@ -54,7 +54,7 @@ class TicTacToe
     end
   end
 
-  def winner?(player_marker)
+  def winner?
     flat_board = @board.flatten
     WINNING_COMBS.one? { |arr|
       (flat_board[arr[0]] == flat_board[arr[1]] && flat_board[arr[1]] == flat_board[arr[2]] && flat_board[arr[0]] != '_')
